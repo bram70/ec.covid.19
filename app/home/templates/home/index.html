@@ -3,6 +3,36 @@
 <h1> Cuestionario </h1>
 {% for pregunta in cuestionario %}
 <li> {{ pregunta.pregunta_texto }} </li>
-<p> {{ pregunta.pregunta__opcion_texto }} </p>
+    {% for opcion in pregunta.opciones %}
+        <p> {{ opcion.opcion_texto }} </p>
+    {% endfor %}
 {% endfor %}
+
+<body>
+
+    <p>Click the button to get your coordinates.</p>
+    
+    <button onclick="getLocation()">Try It</button>
+    
+    <p id="demo"></p>
+    
+    <script>
+    var x = document.getElementById("demo");
+    
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+      } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+      }
+    }
+    
+    function showPosition(position) {
+      x.innerHTML = "Latitude: " + position.coords.latitude + 
+      "<br>Longitude: " + position.coords.longitude;
+      console.log(position)
+    }
+    </script>
+    
+    </body>
 {% endblock %}

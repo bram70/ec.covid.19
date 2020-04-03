@@ -1,11 +1,17 @@
 from django.db import models
 from django.contrib.gis.db import models
 from django.contrib.gis.geos import Point
+from django.utils import timezone
 
 class Pregunta(models.Model):
     pregunta_texto = models.CharField(max_length=250)
     pub_date = models.DateTimeField('fecha publicacion')
     estado = models.IntegerField(default=1)
+
+    @property
+    def opciones(self):
+        return list(Opcion.objects.filter(pregunta=self.pk).values("id", "opcion_texto"))
+
     def __str__(self):
         return self.pregunta_texto
 
@@ -20,4 +26,4 @@ class Opcion(models.Model):
 class Respuesta(models.Model):
     opcion = models.ForeignKey(Opcion, related_name="opcion", on_delete=models.CASCADE)
     location = models.PointField(geography=True, default=Point(0.0,0.0))
-    fecha_creacion = models.DateTimeField('fecha creacion')
+    fecha_creacion = models.DateTimeField('fecha creacion', default=timezone.now)

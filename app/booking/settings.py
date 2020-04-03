@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.gis',
     'home',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

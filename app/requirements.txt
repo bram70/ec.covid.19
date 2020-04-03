@@ -1,6 +1,7 @@
 asgiref==3.2.4
 Django==3.0.4
 django-livesync==0.5
+djangorestframework==3.11.0
 pathtools==0.1.2
 psycopg2-binary==2.8.3
 pytz==2019.3
