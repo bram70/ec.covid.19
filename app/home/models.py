@@ -8,6 +8,12 @@ class Pregunta(models.Model):
     pub_date = models.DateTimeField('fecha publicacion')
     estado = models.IntegerField(default=1)
 
+    INPUT_CHOICES = (
+        ("radio", "Respuesta unica"),
+        ("checkbox", "Multiples respuestas")
+    )
+    tipo_input = models.CharField(max_length = 20, choices = INPUT_CHOICES)
+
     @property
     def opciones(self):
         return list(Opcion.objects.filter(pregunta=self.pk).values("id", "opcion_texto"))

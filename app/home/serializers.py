@@ -9,7 +9,8 @@ class PreguntaSerializer(serializers.ModelSerializer):
         fields = [
             'id',
             'pregunta_texto',
-            'opciones'
+            'opciones',
+            'tipo_input'
         ]
 
 class RespuestaSerializer(serializers.ModelSerializer):

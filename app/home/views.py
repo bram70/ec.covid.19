@@ -5,32 +5,18 @@ from .serializers import PreguntaSerializer, RespuestaSerializer
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
-from .forms import MyGeoForm
 import json
 #from .forms import CrearCuestionario
 
 def home(request):
-    # if this is a POST request we need to process the form data
-    if request.method == 'POST':
-        # create a form instance and populate it with data from the request:
-        form = MyGeoForm(request.POST)
-        # check whether it's valid:
-        if form.is_valid():
-            # process the data in form.cleaned_data as required
-            # ...
-            # redirect to a new URL:
-            print(form.data)
-
-    # if a GET (or any other method) we'll create a blank form
-    else:
-        form = MyGeoForm()
+    if request.method == 'GET':
         cuestionario = Pregunta.objects.values('pregunta_texto', 'pregunta__opcion_texto') 
         for pregunta in cuestionario:
             print(pregunta["pregunta_texto"])
         queryset = Pregunta.objects.all()
         cuestionario_serializer = PreguntaSerializer(queryset, many=True)
         print(json.dumps(cuestionario_serializer.data))
-        context = {'form': form, 'cuestionario': cuestionario_serializer.data}
+        context = {'cuestionario': cuestionario_serializer.data}
         return render(request, 'home/index.html', context)
 
 class RespuestasView(APIView):

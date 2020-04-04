@@ -1,35 +1,32 @@
-{% extends 'base.html' %}
-{% block content %}
-<h1> Cuestionario </h1>
-{% for pregunta in cuestionario %}
-<li> {{ pregunta.pregunta_texto }} </li>
-    {% for opcion in pregunta.opciones %}
-        <p> {{ opcion.opcion_texto }} </p>
-    {% endfor %}
-{% endfor %}
-
 <body>
-
-    <p>Click the button to get your coordinates.</p>
-    
-    <button onclick="getLocation()">Try It</button>
-    
-    <p id="demo"></p>
-    
+    {% extends 'base.html' %}
+    {% block content %}
+    <h1> Cuestionario </h1>
+    <form>
+    {% for pregunta in cuestionario %}
+    <li> {{ pregunta.pregunta_texto }} </li>
+        {% for opcion in pregunta.opciones %}
+            <input type="{{ pregunta.tipo_input }}" id="{{ opcion.id }}" name="{{ pregunta.id }}" value="{{ opcion.id }}">
+            <label for="{{ opcion.id }}">{{ opcion.opcion_texto }}</label><br>
+        {% endfor %}
+    {% endfor %}
+    </form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script>
-    var x = document.getElementById("demo");
-    
+    $(document).ready(function() {
+
+        getLocation();
+
+    });
     function getLocation() {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
       } else { 
-        x.innerHTML = "Geolocation is not supported by this browser.";
+        console.log("Geolocation is not supported by this browser.");
       }
     }
     
     function showPosition(position) {
-      x.innerHTML = "Latitude: " + position.coords.latitude + 
-      "<br>Longitude: " + position.coords.longitude;
       console.log(position)
     }
     </script>
