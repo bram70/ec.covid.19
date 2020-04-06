@@ -10,14 +10,22 @@ import json
 
 def home(request):
     if request.method == 'GET':
-        cuestionario = Pregunta.objects.values('pregunta_texto', 'pregunta__opcion_texto') 
-        for pregunta in cuestionario:
-            print(pregunta["pregunta_texto"])
         queryset = Pregunta.objects.all()
         cuestionario_serializer = PreguntaSerializer(queryset, many=True)
         print(json.dumps(cuestionario_serializer.data))
         context = {'cuestionario': cuestionario_serializer.data}
         return render(request, 'home/index.html', context)
+
+class PreguntasView(APIView):
+    def get(self, request, *args, **kwargs):
+        queryset = Pregunta.objects.all()
+        cuestionario_serializer = PreguntaSerializer(queryset, many=True)
+        diccionario_respuesta = {
+            'status': status.HTTP_200_OK,
+            'data': cuestionario_serializer.data
+        }
+        return Response(diccionario_respuesta, status=status.HTTP_200_OK)
+
 
 class RespuestasView(APIView):
 

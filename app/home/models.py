@@ -10,7 +10,9 @@ class Pregunta(models.Model):
 
     INPUT_CHOICES = (
         ("radio", "Respuesta unica"),
-        ("checkbox", "Multiples respuestas")
+        ("checkbox", "Multiples respuestas"),
+        ("email", "Correo electronico"),
+        ("tel", "Telefono")
     )
     tipo_input = models.CharField(max_length = 20, choices = INPUT_CHOICES)
 
