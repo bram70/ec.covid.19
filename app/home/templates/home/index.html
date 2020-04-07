@@ -29,14 +29,15 @@
             url: RUTA_PREGUNTAS,
             dataType: 'json',
             success: function(data, status){
-                console.log(data.data);
                 crearFormularioEncuesta(data.data);
             }
         });
     }
 
     function crearFormularioEncuesta(cuestionario){
+        //Se obtiene el string html del formulario
         string_formulario = stringFormularioEncuesta(cuestionario);
+        // se lo inserta en el container
         $("#"+id_container_encuesta).html(string_formulario);
     }
 
