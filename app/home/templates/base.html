@@ -1,18 +1,150 @@
 <!doctype  html>
 <html  lang="en">
 <head>
+    <style>
+      {% load static %}
+      @import url(//db.onlinewebfonts.com/c/b6e1e126bc19c3e9fe26136203746a13?family=Kefa+PressS);
+      @font-face {
+          font-family: 'kefa_presssregular';
+          src: url('{% static "home/style/fonts/kefa-regular-webfont.woff2" %}') format('woff2'),
+              url('{% static "home/style/fonts/kefa-regular-webfont.woff" %}') format('woff');
+          font-weight: normal;
+          font-style: normal;
+
+      }
+
+      .tahoma_fonts{
+        font-family: 'Tahoma' !important;
+        font-weight: bold;
+        color: #283e71 !important;
+        display:table-caption;
+        padding: 1.5em;
+        text-align: center;
+      }
+
+      body {
+        font-family: 'Kefa PressS';
+        background-image: url("{% static "home/img/ImagenFondo.png" %}"), url("{% static "home/img/ImagenBacteria.jpg" %}");
+        /* Full height */
+        height: 100%;
+
+        /* Center and scale the image nicely */
+        background-position: bottom left, center;
+        background-repeat: no-repeat;
+        background-size: 50%, cover;
+      }
+
+      .kefa_font {
+        font-family: 'Kefa PressS';
+        font-weight: bolder;
+      }
+
+      h1.kefa_font {
+        font-size: 3.5em;
+        color: #283e71 !important;
+        margin-bottom: 0em;;
+        
+      }
+
+      .subtitulo {
+        font-family: 'Tahoma' !important;
+        letter-spacing: 0.1em;
+        font-size: 2.1em;
+        color:rgb(75, 120, 133)
+      }
+
+      .titulo_padding{
+        padding-top: 4em;
+        padding-bottom: 3em;
+      }
+
+      .texto{
+        font-family: 'Tahoma' !important;
+        font-size: 1.2em;
+        color:rgb(77, 122, 135);
+        text-align: justify;
+      }
+
+      .texto_padding {
+        padding-top: 1em;
+        padding-bottom: 5em;
+      }
+
+      .wraper_botton_acceder {
+        height: 74px;
+        width: 348px;
+      }
+
+      .boton_acceder {
+        height: 37px;
+        width: 174px;
+
+        background-image: url("{% static "home/img/boton.png" %}");
+        background-color: rgba(0,0,0,0);
+        border-color: rgba(0,0,0,0);
+        background-size: auto 100%;
+        background-repeat: no-repeat;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+      }
+      .boton_acceder button{
+        font-family: 'Tahoma' !important;
+        font-weight: bolder;
+        color: white;
+        background-color: rgba(0,0,0,0);
+        border-color: rgba(0,0,0,0);
+        text-align: center;
+        font-size: 1.2em;
+      }
+
+      .redes_sociales {
+        padding-top: 1em;
+        padding-right: 0.8em;
+        font-size: 2.4em;
+        color: rgb(51, 71, 132);
+      }
+
+    </style>
+    <script src="https://kit.fontawesome.com/d135a33502.js" crossorigin="anonymous"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link  rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"  crossorigin="anonymous">
 <title>Tu Experiencia Coronavirus</title>
 </head>
 <body>
-  <div  class="container">
-    <div  class="row justify-content-center">
-      <div  class="col-4">
-      <h1  class="text-center">Cuestionario app</h1>
-      {% block content %}
-      {% endblock %}
+  {% load static %}
+  <nav class="navbar navbar-expand-lg navbar-light static-top tahoma_fonts" style="background-color: rgba(0,0,0,0);">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+            <img src="{% static "home/img/logo.png" %}" alt="Logo">
+          </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="tahoma_fonts" href="#">QUIÉNES SOMOS</a>
+          </li>
+          <li class="nav-item">
+            <a class="tahoma_fonts" href="#">INFORMACIÓN COVID-19</a>
+          </li>
+          <li class="nav-item">
+            <a class="tahoma_fonts" href="#">INFORMES</a>
+          </li>
+        </ul>
       </div>
     </div>
+  
+  </nav>
+  <div  class="container">
+      {% block content %}
+      {% endblock %}
   </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>

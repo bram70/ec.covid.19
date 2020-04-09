@@ -1,92 +1,35 @@
 <body>
     {% extends 'base.html' %}
     {% block content %}
-    <h1> Cuestionario </h1>
+    <div class="col-12 col-md-4">
+        <div class="titulo_padding">
+            <h1 class="kefa_font"> Ayúdanos a salvar vidas</h1>
+            <h2 class="subtitulo">ENCUESTA</h2>
+        </div>
+        <div class="texto_padding">
+            <h3 class="texto">
+                Accede a nuestra encuesta que nos ayudará a recabar información veráz, 
+                con el fin de ayudar a autoridades y empresas privadas, 
+                para canalizar de una manera más efectiva la ayuda.
+            </h3>
+        </div>
+        <div class="wraper_botton_acceder">
+            <div class="boton_acceder">
+                <button >ACCEDE AQUÍ</button>
+            </div>
+            
+        </div>
+        <div>
+            <i class="fab fa-instagram redes_sociales"></i>
+            <i class="fab fa-twitter redes_sociales"></i>
+            <i class="fab fa-facebook-f redes_sociales"></i>
+        </div>
+    </div>
+    
     <form>
     <div id="encuesta"></div>
     </form>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script>
-    let SERVER_URL = "http://localhost:8000"
-    let RUTA_PREGUNTAS = SERVER_URL+"/home/preguntas"
-    let id_container_encuesta = "encuesta"
-
-    $(document).ready(function() {
-        getPreguntas();
-        getLocation();
-
-    });
-    function getLocation() {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-      } else { 
-        console.log("Geolocation is not supported by this browser.");
-      }
-    }
-    
-    function getPreguntas() {
-        $.ajax({
-            url: RUTA_PREGUNTAS,
-            dataType: 'json',
-            success: function(data, status){
-                crearFormularioEncuesta(data.data);
-            }
-        });
-    }
-
-    function crearFormularioEncuesta(cuestionario){
-        //Se obtiene el string html del formulario
-        string_formulario = stringFormularioEncuesta(cuestionario);
-        // se lo inserta en el container
-        $("#"+id_container_encuesta).html(string_formulario);
-    }
-
-    function stringFormularioEncuesta(cuestionario) {
-        let string_formulario = "";
-
-        $.each(cuestionario, function(k, pregunta){
-            console.log(pregunta.tipo_input);
-            //creamos la pregunta con sus tags
-            tag_pregunta = "<li>"+pregunta.pregunta_texto+"</li>"
-
-            //creamos las opciones con sus tags
-            let tag_opciones = ""; 
-            $.each(pregunta.opciones, function(k, opcion){
-                //se guardan las partes del tag input
-                inicio_tag_input = '<input ';
-                tipo_opcion = 'type=\"'+ pregunta.tipo_input + '\" ';
-                id_opcion = 'id=\"'+ opcion.id +'\" ';
-                name_opcion = 'name=\"' + pregunta.id + '\" ';
-                value_opcion = 'value=\"' + opcion.id + '\"';
-                cierre_tag_input = '>';
-
-                //concatenacion del tag input completo
-                tag_input = inicio_tag_input + tipo_opcion + id_opcion + name_opcion + value_opcion + cierre_tag_input;
-
-                // se guardan las partes del label
-                inicio_tag_label = '<label ';
-                for_label = 'for=\"'+ opcion.id + '\">';
-                opcion_texto = opcion.opcion_texto
-                cierre_tag_label = '</label><br>';
-
-                //concatenacion del tag label completo
-                tag_label = inicio_tag_label + for_label + opcion_texto + cierre_tag_label;
-
-                // Se concatena a las opciones
-                tag_opciones += tag_input + tag_label;
-            });
-
-            string_formulario += tag_pregunta + tag_opciones;
-
-        });
-
-        return string_formulario;
-    }
-
-    function showPosition(position) {
-      console.log(position)
-    }
-    </script>
     
     </body>
 {% endblock %}

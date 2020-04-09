@@ -32,3 +32,6 @@ class Flujo(models.Model):
         if self.es_condicional == 1:
             self.fin_de_seccion = 1
         super(Flujo, self).save()
+
+class Proceso(models.Model):
+    flujo_actual = models.ForeignKey(Flujo, related_name="flujo_actual", on_delete=models.CASCADE, blank=True, null=True)
