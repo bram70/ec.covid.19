@@ -28,6 +28,7 @@ class Opcion(models.Model):
     opcion_texto = models.CharField(max_length = 200)
     orden = models.IntegerField(default=0)
     estado = models.IntegerField(default=1)
+    es_positiva = models.IntegerField(default=0)
     def __str__(self):
         return self.opcion_texto
 
@@ -35,3 +36,10 @@ class Respuesta(models.Model):
     opcion = models.ForeignKey(Opcion, related_name="opcion", on_delete=models.CASCADE)
     location = models.PointField(geography=True, default=Point(0.0,0.0))
     fecha_creacion = models.DateTimeField('fecha creacion', default=timezone.now)
+    hora_encuesta_iniciada = models.DateTimeField('fecha inicio encuesta', null=False, blank=False)
+
+class DatosPersonales(models.Model):
+    correo = models.CharField(max_length= 200, null=True, blank=True)
+    telefono = models.CharField(max_length=15, null=True, blank=True)
+    fecha_creacion = models.DateTimeField('fecha creacion', default=timezone.now)
+    hora_encuesta_iniciada = models.DateTimeField('fecha inicio encuesta', null=False, blank=False)

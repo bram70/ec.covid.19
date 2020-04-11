@@ -28,6 +28,9 @@ class Flujo(models.Model):
     siguiente_pregunta_en_flujo = models.ForeignKey('self', related_name="pregunta_siguiente", on_delete=models.CASCADE, blank=True, null=True)
     siguiente_pregunta_en_flujo_negativo = models.ForeignKey('self', related_name="pregunta_siguiente_flujo_negativo", on_delete=models.CASCADE, blank=True, null=True)
 
+    def __str__(self):
+        return self.pregunta.pregunta_texto
+
     def save(self, *args, **kwargs):
         if self.es_condicional == 1:
             self.fin_de_seccion = 1

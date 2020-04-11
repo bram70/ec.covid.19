@@ -1,4 +1,4 @@
-from .models import Pregunta, Respuesta
+from .models import Pregunta, Respuesta, DatosPersonales
 from rest_framework import serializers
 
 class PreguntaSerializer(serializers.ModelSerializer):
@@ -16,4 +16,9 @@ class PreguntaSerializer(serializers.ModelSerializer):
 class RespuestaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Respuesta
+        fields = "__all__"
+
+class DatosPersonalesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = DatosPersonales
         fields = "__all__"

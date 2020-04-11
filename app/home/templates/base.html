@@ -13,7 +13,7 @@
 
       }
 
-      .navbar-collapse a.tahoma_fonts
+      .navbar-collapse.show a.tahoma_fonts
       {
         color: #283e71  !important;
         border-bottom: thin;
@@ -36,7 +36,7 @@
         text-decoration: none;
       }
 
-      body {
+      body.home {
         font-family: 'Kefa PressS';
         background-image: url("{% static "home/img/ImagenFondo.png" %}"), url("{% static "home/img/ImagenBacteria.jpg" %}");
         /* Full height */
@@ -48,6 +48,29 @@
         background-repeat: no-repeat;
         background-size: auto 100%, cover;
         width: 50%,100%;
+      }
+
+      body.encuesta-body {
+        font-family: 'Kefa PressS';
+        background-image: url("{% static "home/img/ImagenBacteria.jpg" %}");
+
+        /* Center and scale the image nicely */
+        background-position: top left;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width:100%;
+      }
+
+      body.test {
+        background: rgba(147,206,222,1);
+        background: -moz-linear-gradient(top, rgba(147,206,222,1) 0%, rgba(126,213,234,1) 55%, rgba(73,165,191,1) 100%);
+        background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(147,206,222,1)), color-stop(55%, rgba(126,213,234,1)), color-stop(100%, rgba(73,165,191,1)));
+        background: -webkit-linear-gradient(top, rgba(147,206,222,1) 0%, rgba(126,213,234,1) 55%, rgba(73,165,191,1) 100%);
+        background: -o-linear-gradient(top, rgba(147,206,222,1) 0%, rgba(126,213,234,1) 55%, rgba(73,165,191,1) 100%);
+        background: -ms-linear-gradient(top, rgba(147,206,222,1) 0%, rgba(126,213,234,1) 55%, rgba(73,165,191,1) 100%);
+        background: linear-gradient(to bottom, rgba(147,206,222,1) 0%, rgba(126,213,234,1) 55%, rgba(73,165,191,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#93cede', endColorstr='#49a5bf', GradientType=0 );
       }
 
       .kefa_font {
@@ -106,7 +129,12 @@
         justify-content: center;
         
       }
-      .boton_acceder button{
+
+      .boton_acceder:hover,  .boton_acceder a:hover{
+        opacity: 0.7;
+        text-decoration: none;
+      }
+      .boton_acceder a{
         font-family: 'Tahoma', sans-serif !important;
         font-weight: bolder;
         color: white;
@@ -114,7 +142,11 @@
         border-color: rgba(0,0,0,0);
         text-align: center;
         font-size: 100%;
+        display: inline;
+        padding: 12%;
       }
+
+      
 
       .redes_sociales {
         padding-top: 1em;
@@ -122,6 +154,14 @@
         padding-right: 0.8em;
         font-size: 2.4em;
         color: rgb(51, 71, 132);
+      }
+
+      .nav-background {
+        background-color: rgba(0,0,0,0);
+      }
+
+      .navbar-container h1{
+        display: none;
       }
 
     </style>
@@ -133,30 +173,36 @@
 </head>
 <body>
   {% load static %}
-  <nav class="navbar navbar-expand-lg navbar-light static-top" style="background-color: rgba(0,0,0,0);">
-    <div class="container">
-      <a class="navbar-brand" href="#">
-            <img src="{% static "home/img/logo.png" %}" alt="Logo">
-          </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="tahoma_fonts" href="#">QUIÉNES SOMOS</a>
-          </li>
-          <li class="nav-item">
-            <a class="tahoma_fonts" href="#">INFORMACIÓN COVID-19</a>
-          </li>
-          <li class="nav-item">
-            <a class="tahoma_fonts" href="#">INFORMES</a>
-          </li>
-        </ul>
+  <div class="navbar-container">
+      <nav class="navbar navbar-expand-lg navbar-light static-top nav-background">
+        <div class="container">
+          <a class="navbar-brand" href="/home">
+                <img src="{% static "home/img/logo.png" %}" alt="Logo">
+              </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="tahoma_fonts" href="#">QUIÉNES SOMOS</a>
+              </li>
+              <li class="nav-item">
+                <a class="tahoma_fonts" href="#">INFORMACIÓN COVID-19</a>
+              </li>
+              <li class="nav-item">
+                <a class="tahoma_fonts" href="#">INFORMES</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      
+      </nav>
+      <div class="titulo-encuesta-container"> 
+          <h1 class="kefa_font"> Cuestionario </h1>
       </div>
-    </div>
+  </div>
   
-  </nav>
   <div  class="container">
       {% block content %}
       {% endblock %}

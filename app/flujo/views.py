@@ -34,18 +34,26 @@ def obtenerListaPreguntas(flujo_pregunta_inicial:Flujo):
             pregunta_serializada = PreguntaSerializer(instance=flujo_pregunta.pregunta)
             preguntas_mostradas.append(pregunta_serializada.data)
 
+
         #Se crea el diccionario de respuesta con los siguientes flujos en null
         diccionario_respuesta = {
             "siguiente_pregunta_en_flujo": None,
             "siguiente_pregunta_en_flujo_negativo" : None,
+            "id_opcion_positiva": None,
             "preguntas": preguntas_mostradas
         }
 
         if flujo_pregunta.siguiente_pregunta_en_flujo is not None:
             diccionario_respuesta["siguiente_pregunta_en_flujo"] = flujo_pregunta.siguiente_pregunta_en_flujo.id
 
-        if flujo_pregunta.es_condicional == 1:
+        if flujo_pregunta.es_condicional == 1 and flujo_pregunta.siguiente_pregunta_en_flujo_negativo is not None:
             diccionario_respuesta["siguiente_pregunta_en_flujo_negativo"] = flujo_pregunta.siguiente_pregunta_en_flujo_negativo.id
+
+        if flujo_pregunta.es_condicional == 1:
+            pregunta = flujo_pregunta.pregunta
+            opcion_positiva = Opcion.objects.get(pregunta__exact= pregunta.id, es_positiva__exact=1)
+            id_opcion_positiva = opcion_positiva.id
+            diccionario_respuesta["id_opcion_positiva"] = id_opcion_positiva
 
         return diccionario_respuesta
     else:
@@ -101,6 +109,7 @@ class EnviarRespuestasView(APIView):
     def post(self, request, *args, **kwargs):
         #Este metodo espera una lista de respuestas.
         respuesta_serializer = RespuestaSerializer(data=request.data, many=True)
+        print(request.data)
 
         if respuesta_serializer.is_valid():
             #print(respuesta_serializer.validated_data)
