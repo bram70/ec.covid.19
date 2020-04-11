@@ -1,0 +1,500 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<head>
+    <style>
+        
+      body {
+        background-color: rgba(255,255,255, 1) !important;
+        text-align: center;
+         /*background-color: #7ED5EA !important;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='312' height='312' viewBox='0 0 800 800'%3E%3Cg fill='none' stroke='%23c1e6f0' stroke-width='1'%3E%3Cpath d='M769 229L1037 260.9M927 880L731 737 520 660 309 538 40 599 295 764 126.5 879.5 40 599-197 493 102 382-31 229 126.5 79.5-69-63'/%3E%3Cpath d='M-31 229L237 261 390 382 603 493 308.5 537.5 101.5 381.5M370 905L295 764'/%3E%3Cpath d='M520 660L578 842 731 737 840 599 603 493 520 660 295 764 309 538 390 382 539 269 769 229 577.5 41.5 370 105 295 -36 126.5 79.5 237 261 102 382 40 599 -69 737 127 880'/%3E%3Cpath d='M520-140L578.5 42.5 731-63M603 493L539 269 237 261 370 105M902 382L539 269M390 382L102 382'/%3E%3Cpath d='M-222 42L126.5 79.5 370 105 539 269 577.5 41.5 927 80 769 229 902 382 603 493 731 737M295-36L577.5 41.5M578 842L295 764M40-201L127 80M102 382L-261 269'/%3E%3C/g%3E%3Cg fill='%23cdf5ff'%3E%3Ccircle cx='769' cy='229' r='5'/%3E%3Ccircle cx='539' cy='269' r='5'/%3E%3Ccircle cx='603' cy='493' r='5'/%3E%3Ccircle cx='731' cy='737' r='5'/%3E%3Ccircle cx='520' cy='660' r='5'/%3E%3Ccircle cx='309' cy='538' r='5'/%3E%3Ccircle cx='295' cy='764' r='5'/%3E%3Ccircle cx='40' cy='599' r='5'/%3E%3Ccircle cx='102' cy='382' r='5'/%3E%3Ccircle cx='127' cy='80' r='5'/%3E%3Ccircle cx='370' cy='105' r='5'/%3E%3Ccircle cx='578' cy='42' r='5'/%3E%3Ccircle cx='237' cy='261' r='5'/%3E%3Ccircle cx='390' cy='382' r='5'/%3E%3C/g%3E%3C/svg%3E");
+      */
+    }
+
+    .navbar-container{
+        background-color: rgba(0,0,0,0);
+        padding-bottom: 0%;
+      }
+
+      .navbar-container h1{
+        display: inline;
+        text-align: center;
+
+      }
+
+      .titulo-encuesta-container{
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+        text-align: center;
+      }
+
+      .encuesta{
+        font-family: Tahoma, sans-serif;
+        font-size: 1em;
+        color:rgb(0, 0, 0);
+        text-align: justify;
+        flex-wrap: wrap;
+        align-content: center;
+        display: inline-block;
+        width: 100%;
+      }
+      .encuesta li{
+        font-size: 1.3em;
+        font-weight:500;
+        display: block !important;
+      }
+
+      input {
+          margin: 0.3em !important;
+      }
+
+      .encuesta-item{
+        text-align:left !important;
+        width: 100%;
+        display: block !important;
+        flex-wrap: wrap;
+        align-content: center;
+        background-color: #fff;
+        border: 1px solid #dadce0;
+        border-radius: 8px;
+        margin-bottom: 12px;
+        padding: 24px;
+        margin-top: 0;
+        page-break-inside: avoid;
+      }
+      .datos-personales-item{
+        font-family: Tahoma, sans-serif;
+        text-align:left !important;
+        width: 100%;
+        display: none;
+        flex-wrap: wrap;
+        align-content: center;
+        background-color: #fff;
+        border: 1px solid #dadce0;
+        border-radius: 8px;
+        margin-bottom: 12px;
+        padding: 24px;
+        margin-top: 0;
+        page-break-inside: avoid;
+    
+      }
+      .datos-personales{
+          text-align: left !important;
+      }
+
+      .boton_acceder span{
+        font-family: 'Tahoma', sans-serif !important;
+        font-weight: bolder;
+        color: white;
+        background-color: rgba(0,0,0,0);
+        border-color: rgba(0,0,0,0);
+        text-align: center;
+        font-size: 100%;
+        display: inline;
+        padding: 12%;
+      }
+
+      h1.encuesta {
+        display: inline-block;
+        margin: 0;
+        transform: translateY(-140%);
+        background: rgba(255, 255, 255, 0);
+        padding: 0 .5em;
+        font-size: 380%;
+    }
+
+    .wrapper-datos-personales{
+        text-align: justify;
+        flex-wrap: wrap;
+        align-content: center;
+        display: inline-block;
+        width: 100%;
+    }
+
+    .wrapper-titulo-encuesta{
+        text-align: justify;
+        flex-wrap: wrap;
+        align-content: center;
+        display: inline-block;
+        width: 100%;
+    }
+
+    .titulo-encuesta{
+        font-family: Tahoma, sans-serif;
+        text-align:left !important;
+        width: 100%;
+        flex-wrap: wrap;
+        align-content: center;
+        background-color: #fff;
+        border: 1px solid #dadce0;
+        border-radius: 8px;
+        margin-bottom: 12px;
+        padding: 24px;
+        margin-top: 0;
+        page-break-inside: avoid;
+    
+      }
+
+    .row-boton-acceder{
+        text-align: right;
+        display: inline-block;
+        width: 100%;
+    }
+    .titulo-encuesta h2 {
+        font-family: 'Tahoma', sans-serif !important;
+        letter-spacing: 0.1em;
+        font-size: 2.1em;
+        color:rgb(75, 120, 133)
+    }
+    .titulo-encuesta h3 {
+        font-family: 'Tahoma', sans-serif !important;
+        font-size: 1.2em;
+        color:rgb(77, 122, 135);
+        text-align: justify;
+    }
+     </style>
+</head>
+<body class="home">
+        <div class="wrapper-titulo-encuesta col-12 col-md-8">
+            <div class="titulo-encuesta">
+                <h2>
+                    ENCUESTA
+                </h2>
+                <h3>
+                    Accede a nuestra encuesta que nos ayudará a recabar información veráz, 
+                    con el fin de ayudar a autoridades y empresas privadas, 
+                    para canalizar de una manera más efectiva la ayuda.
+                </h3>
+            </div>
+        </div>
+        <form>
+        <div class="encuesta col-12 col-md-8 text-center" id="encuesta">
+        </div>
+        </form>
+        <div class="wrapper-datos-personales col-12 col-md-8">
+            <div class="datos-personales-item">
+                <div id="datos_personales"></div>
+            </div>
+        </div>
+        <br>
+        <div class="row-boton-acceder row">
+            <div class="wraper_botton_acceder">
+                <div class="boton_acceder" onclick="siguientePasoEnEncuesta()">
+                    <span>Siguiente</span>
+                </div>  
+            </div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+        <script>
+        var protocol = location.protocol;
+        var slashes = protocol.concat("//");
+        var host = slashes.concat(window.location.hostname);
+        let SERVER_URL = "http://localhost:8000";
+        let RUTA_INICIAR_FLUJO = SERVER_URL+"/flujo/iniciar_flujo";
+        let RUTA_ENVIAR_RESPUESTAS = SERVER_URL + "/flujo/enviar_respuestas";
+        let RUTA_OBTENER_PREGUNTAS_SIN_ID = SERVER_URL + "/flujo/";
+        let RUTA_ENVIAR_DATOS_PERSONALES = SERVER_URL + "/home/datos_personales";
+        let id_container_encuesta = "encuesta";
+        let id_container_datos_personales = "datos_personales";
+        let id_input_correo = "correo";
+        let id_input_telefono = "telefono";
+        let hora_encuesta_iniciada = undefined;
+        let posicion = undefined;
+        let siguiente_pregunta_en_flujo = undefined;
+        let siguiente_pregunta_en_flujo_negativo = undefined;
+        let id_opcion_positiva = undefined
+    
+        $(document).ready(function() {
+            
+            console.log(posicion)
+            getPreguntas(RUTA_INICIAR_FLUJO);
+            getLocation();
+            hora_encuesta_iniciada = obtenerFechaConFormato();
+            console.log(hora_encuesta_iniciada);
+            var csrftoken = Cookies.get('csrftoken');
+            console.log(csrftoken);
+    
+        });
+
+        $.ajaxSetup({
+            beforeSend: function (xhr)
+            {
+                xhr.setRequestHeader("X-CSRFToken", Cookies.get('csrftoken'));        
+            }
+        });
+
+        function getLocation() {
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+          } else { 
+            console.log("Geolocation is not supported by this browser.");
+          }
+        }
+        
+        function getPreguntas(ruta_preguntas) {
+            $.ajax({
+                url: ruta_preguntas,
+                dataType: 'json',
+                success: function(data, status){
+                    crearFormularioEncuesta(data.data.preguntas);
+                    siguiente_pregunta_en_flujo = data.data.siguiente_pregunta_en_flujo;
+                    siguiente_pregunta_en_flujo_negativo = data.data.siguiente_pregunta_en_flujo_negativo;
+                    id_opcion_positiva = data.data.id_opcion_positiva;
+
+                    if (siguiente_pregunta_en_flujo === null) {
+                        string_formulario_datos_personales= stringCorreoTelefonoForm();
+                        $(".datos-personales-item").show();
+                        $("#"+id_container_datos_personales).html(string_formulario_datos_personales);
+                    }
+                }
+            });
+        }
+    
+        function crearFormularioEncuesta(cuestionario){
+            //Se obtiene el string html del formulario
+            string_formulario = stringFormularioEncuesta(cuestionario);
+            // se lo inserta en el container
+            console.log(siguiente_pregunta_en_flujo);
+
+
+            
+            $("#"+id_container_encuesta).html(string_formulario);
+        }
+
+        function limpiarEspacioEncuesta(){
+            $("#"+id_container_encuesta).html("");
+            $("#"+id_container_datos_personales).html("");
+            $(".wraper_botton_acceder").html("");
+        }
+    
+        function stringFormularioEncuesta(cuestionario) {
+            let string_formulario = "";
+
+            let inicio_div = "<div class='encuesta-item'>";
+            let fin_div = "</div>";
+    
+            $.each(cuestionario, function(k, pregunta){
+                console.log(pregunta.tipo_input);
+                //creamos la pregunta con sus tags
+                tag_pregunta = "<li>"+pregunta.pregunta_texto+"</li>"
+    
+                //creamos las opciones con sus tags
+                let tag_opciones = ""; 
+                $.each(pregunta.opciones, function(k, opcion){
+                    //se guardan las partes del tag input
+                    inicio_tag_input = '<input ';
+                    tipo_opcion = 'type=\"'+ pregunta.tipo_input + '\" ';
+                    id_opcion = 'id=\"'+ opcion.id +'\" ';
+                    name_opcion = 'name=\"' + pregunta.id + '\" ';
+                    value_opcion = 'value=\"' + opcion.id + '\"';
+                    cierre_tag_input = '>';
+    
+                    //concatenacion del tag input completo
+                    tag_input = inicio_tag_input + tipo_opcion + id_opcion + name_opcion + value_opcion + cierre_tag_input;
+    
+                    // se guardan las partes del label
+                    inicio_tag_label = '<label ';
+                    for_label = 'for=\"'+ opcion.id + '\">';
+                    opcion_texto = opcion.opcion_texto
+                    cierre_tag_label = '</label><br>';
+    
+                    //concatenacion del tag label completo
+                    tag_label = inicio_tag_label + for_label + opcion_texto + cierre_tag_label;
+    
+                    // Se concatena a las opciones
+                    tag_opciones += tag_input + tag_label;
+                });
+    
+                string_formulario += inicio_div + tag_pregunta + tag_opciones + fin_div;
+    
+            });
+    
+            return string_formulario;
+        }
+    
+        function showPosition(position) {
+            
+            console.log(position)
+            posicion = position;
+            return position;
+        }
+
+        function enviarRespuestasObtenerSiguientesPreguntas(){
+
+            enviarRespuestas(obtenerRespuestas(), obtenerSiguientesPreguntas);
+            
+        }
+
+        function enviarRespuestas(respuestas, funcionSiSuccess){
+            if (respuestas != undefined){
+                $.ajax({
+                    type: "POST",
+                    url: RUTA_ENVIAR_RESPUESTAS,
+                    contentType: "application/json",
+                    dataType: 'json',
+                    data: JSON.stringify(respuestas),
+                    success: function(data, status){
+                        console.log(data.data);
+                        funcionSiSuccess();
+
+                    }
+                });
+            }
+            
+        }
+
+        function obtenerSiguientesPreguntas() {
+            //se esconde el título
+            $(".wrapper-titulo-encuesta").hide();
+            
+            if ($('input#'+id_opcion_positiva).prop("checked")) {
+                getPreguntas(RUTA_OBTENER_PREGUNTAS_SIN_ID+siguiente_pregunta_en_flujo);
+            }
+            else {
+                getPreguntas(RUTA_OBTENER_PREGUNTAS_SIN_ID+siguiente_pregunta_en_flujo_negativo);
+            }
+        }
+
+        function siguientePasoEnEncuesta() {
+
+            if (siguiente_pregunta_en_flujo === null) {
+                enviarRespuestasYDatosPersonales();       
+            }
+            else {
+                enviarRespuestasObtenerSiguientesPreguntas()
+            }
+            
+        }
+
+        function enviarRespuestasYDatosPersonales(){
+            enviarRespuestas(obtenerRespuestas(), enviarDatosPersonales);
+            
+        }
+
+        function enviarDatosPersonales() {
+            var datos = obtenerDatosPersonales();
+            $.ajax({
+                type: "POST",
+                url: RUTA_ENVIAR_DATOS_PERSONALES,
+                contentType: "application/json",
+                dataType: 'json',
+                data: JSON.stringify(datos),
+                success: function(data, status){
+                    limpiarEspacioEncuesta()
+                    $("#"+id_container_encuesta).html("Gracias por tu ayuda.");
+                    $(".datos-personales-item").hide();
+                }
+            });
+
+        }
+
+        function obtenerDatosPersonales() {
+            console.log("obteniendo datos personales");
+            var correo_ingresado = $("#"+id_input_correo).val();
+            var telefono_ingresado = $("#"+id_input_telefono).val();
+
+            var diccionario_request = {
+                hora_encuesta_iniciada: hora_encuesta_iniciada
+            }
+
+            if(correo_ingresado){
+                diccionario_request[id_input_correo] = correo_ingresado;
+            }
+
+            if(telefono_ingresado){
+                diccionario_request[id_input_telefono] = telefono_ingresado;
+            }
+
+            return diccionario_request;
+
+        }
+
+        function obtenerRespuestas(){
+            console.log("obteniendo respuestas")
+            let respuestas = []
+            //revisar si todas las preguntas han sido respondidas
+            if($('input:checked').length ==  $(".encuesta-item").length) {
+                if (posicion == undefined) {
+                    $('input:checked').each(function () {
+                        console.log(this.value); // "this" is the current element in the loop
+                        respuestas.push({
+                            opcion: parseInt(this.value),
+                            hora_encuesta_iniciada: hora_encuesta_iniciada
+                        });
+                    });
+                    console.log(respuestas)
+                    
+                }
+                else{
+                    $('input:checked').each(function () {
+                        console.log(this.value); // "this" is the current element in the loop
+                        respuestas.push({
+                            opcion: this.value,
+                            location: stringPoint(posicion.coords.latitude, posicion.coords.longitude),
+                            hora_encuesta_iniciada: hora_encuesta_iniciada
+                        });
+                    });
+                    console.log(respuestas)
+                }
+                return respuestas;
+            }
+            else {
+                alert("Por favor, contesta todas las preguntas.");
+                return undefined;
+            }
+            
+            
+            
+        }
+
+        function stringPoint(latitud, longitud){
+            return "POINT(" +latitud+" "+ longitud+")";
+        }
+
+        function obtenerFechaConFormato() {
+            var fecha = new Date();
+            anio_mes_dia = fecha.getFullYear()+"-"+arreglarNumeros((fecha.getMonth()+1), 2)+"-"+fecha.getDate();
+            hora = fecha.getHours()+":"+fecha.getMinutes()+":"+arreglarNumeros(fecha.getSeconds(),2)+"."+arreglarNumeros(fecha.getMilliseconds(), 3)+"000";
+            return( anio_mes_dia+" "+hora);
+        }
+        
+
+        function arreglarNumeros(numero, longitudRequerida){
+            numero = numero.toString();
+            var dif_longitud = longitudRequerida - numero.length
+            if (dif_longitud != 0){
+                console.log(numero.length);
+                return agregarCeros(dif_longitud, numero);
+            }
+            return numero
+        }
+
+        function agregarCeros(numeroCeros, numero){
+            var nuevo_numero = "";
+            for(var i = 0; i<numeroCeros; i++){
+                nuevo_numero += "0";
+            }
+            nuevo_numero += numero;
+            return nuevo_numero;
+        }
+
+        function stringCorreoTelefonoForm(){
+            var forma_email = '<form><div class="form-group"><label for="exampleInputEmail1">Email address</label>'+
+                '<input type="email" class="form-control" id="'+id_input_correo+'" aria-describedby="emailHelp" placeholder="Ingrese su email">'+
+                '<small id="emailHelp" class="form-text text-muted">Estos datos nos ayudarán a brindarte mayor información</small></div>';
+
+            var forma_telefono = '<div class="form-group"><label for="exampleInputPassword1">Número de teléfono</label>'+
+                '<input type="tel" class="form-control" id="'+id_input_telefono+'" placeholder="Ingrese su número de teléfono"></div></form>'; 
+
+            return forma_email+forma_telefono;
+            
+        }
+
+        </script>
+        
+        </body>
+    {% endblock %}
+    

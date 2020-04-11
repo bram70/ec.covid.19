@@ -1,8 +1,35 @@
-{% extends 'base.html' %}
-{% block content %}
-<h1> Cuestionario </h1>
-{% for pregunta in cuestionario %}
-<li> {{ pregunta.pregunta_texto }} </li>
-<p> {{ pregunta.pregunta__opcion_texto }} </p>
-{% endfor %}
+<body class="home">
+    {% extends 'base.html' %}
+    {% block content %}
+    <div class="col-12 col-md-5 col-lg-4">
+        <div class="titulo_padding">
+            <h1 class="kefa_font"> Ayúdanos a salvar vidas</h1>
+            <h2 class="subtitulo">ENCUESTA</h2>
+        </div>
+        <div class="texto_padding">
+            <h3 class="texto">
+                Accede a nuestra encuesta que nos ayudará a recabar información veráz, 
+                con el fin de ayudar a autoridades y empresas privadas, 
+                para canalizar de una manera más efectiva la ayuda.
+            </h3>
+        </div>
+        <div class="wraper_botton_acceder">
+            <div class="boton_acceder">
+                <a href="/home/encuesta">ACCEDE AQUÍ</a>
+            </div>
+            
+        </div>
+        <div>
+            <i class="fab fa-instagram redes_sociales"></i>
+            <i class="fab fa-twitter redes_sociales"></i>
+            <i class="fab fa-facebook-f redes_sociales"></i>
+        </div>
+    </div>
+    
+    <form>
+    <div id="encuesta"></div>
+    </form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    
+    </body>
 {% endblock %}

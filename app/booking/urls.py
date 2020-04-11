@@ -8,7 +8,8 @@ from home.views import home
 
 urlpatterns = [
     path("home/", include('home.urls')),
-   path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),
+    path("flujo/", include("flujo.urls")),
 ]
 
 if bool(settings.DEBUG):
