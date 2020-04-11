@@ -5,15 +5,14 @@
     <style>
         
       body {
-        background-color: rgba(255,255,255, 1); !important;
-        
+        background-color: rgba(255,255,255, 1) !important;
+        text-align: center;
          /*background-color: #7ED5EA !important;
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='312' height='312' viewBox='0 0 800 800'%3E%3Cg fill='none' stroke='%23c1e6f0' stroke-width='1'%3E%3Cpath d='M769 229L1037 260.9M927 880L731 737 520 660 309 538 40 599 295 764 126.5 879.5 40 599-197 493 102 382-31 229 126.5 79.5-69-63'/%3E%3Cpath d='M-31 229L237 261 390 382 603 493 308.5 537.5 101.5 381.5M370 905L295 764'/%3E%3Cpath d='M520 660L578 842 731 737 840 599 603 493 520 660 295 764 309 538 390 382 539 269 769 229 577.5 41.5 370 105 295 -36 126.5 79.5 237 261 102 382 40 599 -69 737 127 880'/%3E%3Cpath d='M520-140L578.5 42.5 731-63M603 493L539 269 237 261 370 105M902 382L539 269M390 382L102 382'/%3E%3Cpath d='M-222 42L126.5 79.5 370 105 539 269 577.5 41.5 927 80 769 229 902 382 603 493 731 737M295-36L577.5 41.5M578 842L295 764M40-201L127 80M102 382L-261 269'/%3E%3C/g%3E%3Cg fill='%23cdf5ff'%3E%3Ccircle cx='769' cy='229' r='5'/%3E%3Ccircle cx='539' cy='269' r='5'/%3E%3Ccircle cx='603' cy='493' r='5'/%3E%3Ccircle cx='731' cy='737' r='5'/%3E%3Ccircle cx='520' cy='660' r='5'/%3E%3Ccircle cx='309' cy='538' r='5'/%3E%3Ccircle cx='295' cy='764' r='5'/%3E%3Ccircle cx='40' cy='599' r='5'/%3E%3Ccircle cx='102' cy='382' r='5'/%3E%3Ccircle cx='127' cy='80' r='5'/%3E%3Ccircle cx='370' cy='105' r='5'/%3E%3Ccircle cx='578' cy='42' r='5'/%3E%3Ccircle cx='237' cy='261' r='5'/%3E%3Ccircle cx='390' cy='382' r='5'/%3E%3C/g%3E%3C/svg%3E");
       */
     }
 
     .navbar-container{
-        background-image:  url("{% static "home/img/banner.png" %}");
         background-color: rgba(0,0,0,0);
         padding-bottom: 0%;
       }
@@ -34,13 +33,12 @@
       .encuesta{
         font-family: Tahoma, sans-serif;
         font-size: 1em;
-        color:rgb(77, 122, 135);
+        color:rgb(0, 0, 0);
         text-align: justify;
-        text-align: center;
-        display: flex;
         flex-wrap: wrap;
         align-content: center;
-        
+        display: inline-block;
+        width: 100%;
       }
       .encuesta li{
         font-size: 1.3em;
@@ -53,12 +51,49 @@
       }
 
       .encuesta-item{
+        text-align:left !important;
         width: 100%;
         display: block !important;
         flex-wrap: wrap;
         align-content: center;
-        background-color: rgba(255, 255, 255, 0);
-        margin: 2em;
+        background-color: #fff;
+        border: 1px solid #dadce0;
+        border-radius: 8px;
+        margin-bottom: 12px;
+        padding: 24px;
+        margin-top: 0;
+        page-break-inside: avoid;
+      }
+      .datos-personales-item{
+        font-family: Tahoma, sans-serif;
+        text-align:left !important;
+        width: 100%;
+        display: none;
+        flex-wrap: wrap;
+        align-content: center;
+        background-color: #fff;
+        border: 1px solid #dadce0;
+        border-radius: 8px;
+        margin-bottom: 12px;
+        padding: 24px;
+        margin-top: 0;
+        page-break-inside: avoid;
+    
+      }
+      .datos-personales{
+          text-align: left !important;
+      }
+
+      .boton_acceder span{
+        font-family: 'Tahoma', sans-serif !important;
+        font-weight: bolder;
+        color: white;
+        background-color: rgba(0,0,0,0);
+        border-color: rgba(0,0,0,0);
+        text-align: center;
+        font-size: 100%;
+        display: inline;
+        padding: 12%;
       }
 
       h1.encuesta {
@@ -69,25 +104,94 @@
         padding: 0 .5em;
         font-size: 380%;
     }
+
+    .wrapper-datos-personales{
+        text-align: justify;
+        flex-wrap: wrap;
+        align-content: center;
+        display: inline-block;
+        width: 100%;
+    }
+
+    .wrapper-titulo-encuesta{
+        text-align: justify;
+        flex-wrap: wrap;
+        align-content: center;
+        display: inline-block;
+        width: 100%;
+    }
+
+    .titulo-encuesta{
+        font-family: Tahoma, sans-serif;
+        text-align:left !important;
+        width: 100%;
+        flex-wrap: wrap;
+        align-content: center;
+        background-color: #fff;
+        border: 1px solid #dadce0;
+        border-radius: 8px;
+        margin-bottom: 12px;
+        padding: 24px;
+        margin-top: 0;
+        page-break-inside: avoid;
+    
+      }
+
+    .row-boton-acceder{
+        text-align: right;
+        display: inline-block;
+        width: 100%;
+    }
+    .titulo-encuesta h2 {
+        font-family: 'Tahoma', sans-serif !important;
+        letter-spacing: 0.1em;
+        font-size: 2.1em;
+        color:rgb(75, 120, 133)
+    }
+    .titulo-encuesta h3 {
+        font-family: 'Tahoma', sans-serif !important;
+        font-size: 1.2em;
+        color:rgb(77, 122, 135);
+        text-align: justify;
+    }
      </style>
 </head>
-<body class="">
+<body class="home">
+        <div class="wrapper-titulo-encuesta col-12 col-md-8">
+            <div class="titulo-encuesta">
+                <h2>
+                    ENCUESTA
+                </h2>
+                <h3>
+                    Accede a nuestra encuesta que nos ayudará a recabar información veráz, 
+                    con el fin de ayudar a autoridades y empresas privadas, 
+                    para canalizar de una manera más efectiva la ayuda.
+                </h3>
+            </div>
+        </div>
         <form>
-        <div class="encuesta" id="encuesta">
+        <div class="encuesta col-12 col-md-8 text-center" id="encuesta">
         </div>
         </form>
-        <div class="col-6" id="datos_personales">
-        </div>
-        <div class="wraper_botton_acceder">
-            <div class="boton_acceder" onclick="siguientePasoEnEncuesta()">
-                <button type="button">
-                    Siguiente
-                </button>
+        <div class="wrapper-datos-personales col-12 col-md-8">
+            <div class="datos-personales-item">
+                <div id="datos_personales"></div>
             </div>
-            
+        </div>
+        <br>
+        <div class="row-boton-acceder row">
+            <div class="wraper_botton_acceder">
+                <div class="boton_acceder" onclick="siguientePasoEnEncuesta()">
+                    <span>Siguiente</span>
+                </div>  
+            </div>
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
         <script>
+        var protocol = location.protocol;
+        var slashes = protocol.concat("//");
+        var host = slashes.concat(window.location.hostname);
         let SERVER_URL = "http://localhost:8000";
         let RUTA_INICIAR_FLUJO = SERVER_URL+"/flujo/iniciar_flujo";
         let RUTA_ENVIAR_RESPUESTAS = SERVER_URL + "/flujo/enviar_respuestas";
@@ -110,8 +214,18 @@
             getLocation();
             hora_encuesta_iniciada = obtenerFechaConFormato();
             console.log(hora_encuesta_iniciada);
+            var csrftoken = Cookies.get('csrftoken');
+            console.log(csrftoken);
     
         });
+
+        $.ajaxSetup({
+            beforeSend: function (xhr)
+            {
+                xhr.setRequestHeader("X-CSRFToken", Cookies.get('csrftoken'));        
+            }
+        });
+
         function getLocation() {
           if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(showPosition);
@@ -132,6 +246,7 @@
 
                     if (siguiente_pregunta_en_flujo === null) {
                         string_formulario_datos_personales= stringCorreoTelefonoForm();
+                        $(".datos-personales-item").show();
                         $("#"+id_container_datos_personales).html(string_formulario_datos_personales);
                     }
                 }
@@ -143,6 +258,8 @@
             string_formulario = stringFormularioEncuesta(cuestionario);
             // se lo inserta en el container
             console.log(siguiente_pregunta_en_flujo);
+
+
             
             $("#"+id_container_encuesta).html(string_formulario);
         }
@@ -222,6 +339,7 @@
                     success: function(data, status){
                         console.log(data.data);
                         funcionSiSuccess();
+
                     }
                 });
             }
@@ -229,6 +347,9 @@
         }
 
         function obtenerSiguientesPreguntas() {
+            //se esconde el título
+            $(".wrapper-titulo-encuesta").hide();
+            
             if ($('input#'+id_opcion_positiva).prop("checked")) {
                 getPreguntas(RUTA_OBTENER_PREGUNTAS_SIN_ID+siguiente_pregunta_en_flujo);
             }
@@ -264,6 +385,7 @@
                 success: function(data, status){
                     limpiarEspacioEncuesta()
                     $("#"+id_container_encuesta).html("Gracias por tu ayuda.");
+                    $(".datos-personales-item").hide();
                 }
             });
 
