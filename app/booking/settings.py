@@ -24,7 +24,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    "livesync",
+#    "livesync",
     'django.contrib.staticfiles',
     'django.contrib.gis',
     'home',
@@ -40,7 +40,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'livesync.core.middleware.DjangoLiveSyncMiddleware',
+#    'livesync.core.middleware.DjangoLiveSyncMiddleware',
 ]
 
 ROOT_URLCONF = 'booking.urls'
@@ -121,7 +121,4 @@ STATICFILES_DIRS = (
     )
 MEDIA_URL = "/mediafiles/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "mediafiles")
-LOGIN_REDIRECT_URL = '/home/'
-
-
-ALLOWED_HOSTS = ['juans-macbook-air.local', 'localhost', '127.0.0.1']
+LOGIN_REDIRECT_URL = '/'
