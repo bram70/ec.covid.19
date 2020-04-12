@@ -6,6 +6,7 @@ app_name = 'home'
 urlpatterns=[
     path('', views.home, name='home'),
     path('encuesta', views.encuesta, name='encuesta'),
+    path('quienes_somos', views.quienes_somos, name='quienes_somos'),
     path('respuesta', RespuestasView.as_view(), name="respuesta_view"),
     path('preguntas', PreguntasView.as_view(), name="preguntas_view"),
     path('datos_personales', DatosPersonalesView.as_view(), name="datos_personales_view"),

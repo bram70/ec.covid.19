@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<head>
+    <style>
+        .primera-mitad{
+            width: 100%;
+            background-color: #D4EEF3;
+            margin: 0px;
+        } 
+        .segunda-mitad{
+            width: 100%;
+            background-color: #A6D9E2;
+            margin: 0px;
+        }
+
+        .primera-mitad, .segunda-mitad {
+            flex: 1;
+            flex-shrink: 0;
+        }
+
+        html, body{
+            height: 100%;
+            padding:0px;
+            display: flex;
+            flex-flow: column;
+        }
+        .box .row.content {
+            flex: 1 1 auto;
+        }
+
+        .container.cuerpo{
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            margin: 0px;
+            padding: 0px;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .body-container{
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            
+        }
+
+        .contenido{
+            padding: 0% 5%;
+            margin: 1% 0%;
+        }
+        img.ancha{
+            width: 100%;
+            height: auto;
+            padding: 3%;
+        }
+        img.alta{
+            width: 100%;
+            height: auto;
+            padding: 3%;
+        }
+        h3{
+            padding: 2%;
+        }
+    </style>
+</head>
+<body>
+    <div class="body-container">
+        <div class="primera-mitad">
+            <div class="row align-items-center">
+                <div class="col-12 col-md-6 align-self-center contenido">
+                    <h2 class="subtitulo">Quiénes Somos</h2>
+                    <h3 class="texto">
+                            Somos un equipo de jóvenes multidisciplinario con ganas de ayudar al Ecuador.
+                            
+                    </h3>
+                    <h3 class="texto">
+                            Queremos visibilizar a todos aquellos que no son parte de las estadísticas oficiales del Gobierno. 
+                    </h3>
+                    <h3 class="texto">
+                            Sabemos que muchos como tú, tus familiares o tus amigos, sufren los estragos del Covid-19 en casa, con poca o sin ayuda porque no accedieron a la prueba oficial. 
+                    </h3>
+                </div>
+                <div class="col-12 col-md-6">
+                    <img class="ancha" src='{% static "home/img/quienes_somos@2x.png" %}' alt="Quienes somos">
+                </div>
+            </div>
+        </div>
+        <div class="segunda-mitad">
+                <div class="row align-items-center">
+                        <div class="col-12 col-md-6 align-self-center">
+                                <img class="alta" src='{% static "home/img/quienes_somos_2@2x.png" %}' alt="Quienes somos">
+                            </div>
+                        <div class="col-12 col-md-6 align-self-center contenido">
+                            <h2 class="subtitulo">Qué se necesita</h2>
+                            <h3 class="texto">
+                                    Necesitamos tu ayuda. Llena este formulario y compártelo para que el Gobierno y todo el país conozca la verdad. 
+                                    
+                            </h3>
+                            <h3 class="texto">
+                                    Con tu colaboración podremos proponer acciones que ayudarán a salvar la vida de miles de ecuatorianos. 
+                            </h3>
+                            <div class="boton_acceder">
+                                <a href="/encuesta">ACCEDE AQUÍ</a>
+                            </div>
+                        </div>
+                    </div>
+        </div>
+    </div>
+    
+</body>
+{% endblock %}
