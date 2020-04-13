@@ -12,6 +12,10 @@ def home(request):
     if request.method == 'GET':
         return render(request, 'home/index.html')
 
+def quienes_somos(request):
+    if request.method == 'GET':
+        return render(request, 'home/quienes_somos.html')
+
 def encuesta(request):
     if request.method == 'GET':
         queryset = Pregunta.objects.all()
