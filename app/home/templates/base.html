@@ -1,8 +1,6 @@
 <!doctype  html>
 <html  lang="en">
 <head>
-    <meta name="description" content="Tu experiencia Covid-19 en Ecuador, ayúdanos a ayudar. Sé el ente que genera conocimiento colaborativo, y genera soluciones en nuestra sociedad.">
-    <meta name="keywords" content="coronavirus en ecuador,covid19 ecuador,covid-19 ecuador,covidecuador.org,ayuda ecuador,covid19 guayaquil, coronavirus guayaquil">
     <style>
       {% load static %}
       @import url(//db.onlinewebfonts.com/c/b6e1e126bc19c3e9fe26136203746a13?family=Kefa+PressS);
@@ -170,6 +168,19 @@
     <script src="https://kit.fontawesome.com/d135a33502.js" crossorigin="anonymous"></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="Tu experiencia Covid-19 en Ecuador, ayúdanos a ayudar. Sé el ente que genera conocimiento colaborativo, y genera soluciones en nuestra sociedad.">
+
+<meta name="keywords" content="coronavirus en ecuador,covid19 ecuador,covid-19 ecuador,covidecuador.org,ayuda ecuador,covid19 guayaquil, coronavirus guayaquil">
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-163701538-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-163701538-1');
+</script>
 <link  rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"  crossorigin="anonymous">
 <title>Tu Experiencia Coronavirus</title>
 </head>
@@ -178,7 +189,7 @@
   <div class="navbar-container">
       <nav class="navbar navbar-expand-lg navbar-light static-top nav-background">
         <div class="container">
-          <a class="navbar-brand" href="/home">
+          <a class="navbar-brand" href="/">
                 <img src="{% static "home/img/logo.png" %}" alt="Logo">
               </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -187,7 +198,7 @@
           <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <a class="tahoma_fonts" href="#">QUIÉNES SOMOS</a>
+                <a class="tahoma_fonts" href="/quienes_somos">QUIÉNES SOMOS</a>
               </li>
               <li class="nav-item">
                 <a class="tahoma_fonts" href="#">INFORMACIÓN COVID-19</a>
@@ -202,22 +213,14 @@
       </nav>
   </div>
   
-  <div  class="container">
+  <div  class="container cuerpo">
       {% block content %}
       {% endblock %}
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163701538-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
 
-    gtag('config', 'UA-163701538-1');
-  </script>
 
 </body>
 </html>

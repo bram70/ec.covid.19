@@ -39,6 +39,13 @@ class Respuesta(models.Model):
     hora_encuesta_iniciada = models.DateTimeField('fecha inicio encuesta', null=False, blank=False)
 
 class DatosPersonales(models.Model):
+    fecha_nacimiento = models.DateField('fecha nacimiento', blank=False, null = False)
+    GENERO_CHOICES = (
+        ("M", "Masculino"),
+        ("F", "Femenino"),
+        ("O", "Otro")
+    )
+    genero = models.CharField(max_length=1, choices=GENERO_CHOICES)
     correo = models.CharField(max_length= 200, null=True, blank=True)
     telefono = models.CharField(max_length=15, null=True, blank=True)
     fecha_creacion = models.DateTimeField('fecha creacion', default=timezone.now)

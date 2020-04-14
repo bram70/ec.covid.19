@@ -1,11 +1,20 @@
 version: '3.7'
 
 services:
+  nginx:
+    build: ./nginx
+    volumes:
+      - static_volume:/usr/src/app/staticfiles
+    ports:
+      - 80:80
+    depends_on:
+      - web
   web:
     build: ./app
-    command: python manage.py runserver 0.0.0.0:8000
+    command: gunicorn booking.wsgi:application --bind 0.0.0.0:8000
     volumes:
       - ./app/:/usr/src/app/
+      - static_volume:/usr/src/app/staticfiles
     ports:
       - 8000:8000
     env_file:
@@ -21,3 +30,4 @@ services:
       - POSTGRES_DB=hello_django_dev
 volumes:
   postgis_data:
+  static_volume:
