@@ -471,7 +471,7 @@
                     success: function(data, status){
                         limpiarEspacioEncuesta()
                         console.log(data.data);
-                        $("#"+id_container_encuesta).html("Gracias por tu ayuda.");
+                        $("#"+id_container_encuesta).html("Gracias por tu colaboración. <br/> Pronto empezarás a recibir información oportuna de ayuda, donaciones y campañas de socorro para ti y tu familia.");
                         $(".datos-personales-item").hide();
                     }
                 });
@@ -557,7 +557,7 @@
         }
 
         function stringPoint(latitud, longitud){
-            return "POINT(" +longitud+" "+ latitud+")";
+            return "POINT(" +latitud+" "+ longitud+")";
         }
 
         function obtenerFechaConFormato() {
@@ -590,7 +590,7 @@
         function stringCorreoTelefonoForm(){
             var forma_email = '<form><div class="form-group"><label for="exampleInputEmail1">Email address</label>'+
                 '<input type="email" class="form-control" id="'+id_input_correo+'" aria-describedby="emailHelp" placeholder="Ingrese su email">'+
-                '<small id="emailHelp" class="form-text text-muted">Queremos ayudarte con infromación oportuna de ayuda, donaciones y campañas de socorro para ti y tu familia. Por favor, ingresa tu número telefónico (obligatorio) y correo electrónico (opcional).</small></div>';
+                '<small id="emailHelp" class="form-text text-muted">Queremos ayudarte con información oportuna de ayuda, donaciones y campañas de socorro para ti y tu familia. Por favor, ingresa tu número telefónico (obligatorio) y correo electrónico (opcional).</small></div>';
 
             var forma_telefono = '<div class="form-group"><label for="exampleInputPassword1">Número de teléfono</label>'+
                 '<input type="tel" pattern="(([0]{1}[9]{1}[0-9]{8})|([0]{1}[2-7]{1}[0-9]{7}))" class="form-control" id="'+id_input_telefono+'" placeholder="Ingrese su número de teléfono"></div></form>'; 
