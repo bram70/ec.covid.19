@@ -10,6 +10,8 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
 import json
+from django.contrib.gis.geoip2 import GeoIP2
+from home.types import CIUDAD_DEFAULT, DEFAULT_DIRECCION_WKT, UBICACION_DEFAULT_EN_MODELO
 
 # Create your views here.
 def obtenerListaPreguntas(flujo_pregunta_inicial:Flujo):
@@ -115,6 +117,18 @@ class EnviarRespuestasView(APIView):
             #print(respuesta_serializer.validated_data)
             data = respuesta_serializer.save()
 
+            #Se obtiene la ubicación a partir de la ip
+            ubicacion = obtener_lat_long_de_ciudad_wkt_con_request(request)
+
+            for respuesta in data:
+                print(respuesta.location)
+                if(respuesta.location == UBICACION_DEFAULT_EN_MODELO):
+                    print("es default")
+                    respuesta.location = "SRID=4326;"+ubicacion
+                    respuesta.save()
+
+                
+
             repuestas_guardadas = RespuestaSerializer(data, many=True)
             diccionario_respuesta = {
                 'status': status.HTTP_201_CREATED,
@@ -128,3 +142,30 @@ class EnviarRespuestasView(APIView):
                 'data': {}
             }
         return Response(diccionario_respuesta, status=status.HTTP_400_BAD_REQUEST)
+
+
+def get_client_ip(request):
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        print("primera opcion")
+        ip = x_forwarded_for.split(',')[-1].strip()
+    else:
+        ip = request.META.get('REMOTE_ADDR')
+        print("segunda opcion")
+    return ip
+
+def obtener_lat_long_de_ciudad_wkt(ip):
+    try: 
+        g = GeoIP2()
+        location = g.geos(ip).wkt
+        return location
+    except Exception:
+        return DEFAULT_DIRECCION_WKT
+
+def obtener_lat_long_de_ciudad_wkt_con_request(request):
+    try:
+        ip = get_client_ip(request)
+        return obtener_lat_long_de_ciudad_wkt(ip)
+    except Exception:
+        return DEFAULT_DIRECCION_WKT
+

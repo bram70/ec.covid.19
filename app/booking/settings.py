@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'home',
     'flujo',
     'rest_framework',
+    'geoip2',
 ]
 
 MIDDLEWARE = [
@@ -122,3 +123,6 @@ STATICFILES_DIRS = (
 MEDIA_URL = "/mediafiles/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "mediafiles")
 LOGIN_REDIRECT_URL = '/'
+
+#geip path
+GEOIP_PATH =os.path.join(BASE_DIR, 'geoip')
