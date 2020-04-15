@@ -119,11 +119,11 @@ class EnviarRespuestasView(APIView):
 
             #Se obtiene la ubicación a partir de la ip
             ubicacion = obtener_lat_long_de_ciudad_wkt_con_request(request)
+            print(ubicacion)
 
             for respuesta in data:
-                print(respuesta.location)
                 if(respuesta.location == UBICACION_DEFAULT_EN_MODELO):
-                    print("es default")
+                    print("era default")
                     respuesta.location = "SRID=4326;"+ubicacion
                     respuesta.save()
 
@@ -158,14 +158,18 @@ def obtener_lat_long_de_ciudad_wkt(ip):
     try: 
         g = GeoIP2()
         location = g.lat_lon(ip)
-        return "POINT(" +location[0]+" "+ location[1]+")"
-    except Exception:
+        return "POINT(" +str(location[0])+" "+ str(location[1])+")"
+    except Exception as e:
+        print("Exception here")
+        print(str(e))
         return DEFAULT_DIRECCION_WKT
 
 def obtener_lat_long_de_ciudad_wkt_con_request(request):
     try:
         ip = get_client_ip(request)
         return obtener_lat_long_de_ciudad_wkt(ip)
-    except Exception:
+    except Exception as e:
+        print("Exception here")
+        print(str(e))
         return DEFAULT_DIRECCION_WKT
 
