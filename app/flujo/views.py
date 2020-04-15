@@ -157,8 +157,8 @@ def get_client_ip(request):
 def obtener_lat_long_de_ciudad_wkt(ip):
     try: 
         g = GeoIP2()
-        location = g.geos(ip).wkt
-        return location
+        location = g.lat_lon(ip)
+        return "POINT(" +location[0]+" "+ location[1]+")"
     except Exception:
         return DEFAULT_DIRECCION_WKT
 
