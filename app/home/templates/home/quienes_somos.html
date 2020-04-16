@@ -14,7 +14,13 @@
             margin: 0px;
         }
 
-        .primera-mitad, .segunda-mitad {
+        .tercera-mitad{
+            width: 100%;
+            background-color: #82D5E3;
+            margin: 0px;
+        }
+
+        .primera-mitad, .segunda-mitad, .tercera-mitad {
             flex: 1;
             flex-shrink: 0;
         }
@@ -50,15 +56,22 @@
             padding: 0% 5%;
             margin: 1% 0%;
         }
+
+        .centrar-imagen{
+            text-align: center;
+        }
+
         img.ancha{
             width: 100%;
             height: auto;
             padding: 3%;
         }
         img.alta{
-            width: 100%;
+            width: 80%;
             height: auto;
             padding: 3%;
+            align-self: center;
+            text-align: center;
         }
         h3{
             text-align: left !important;
@@ -108,6 +121,16 @@
                         </div>
                     </div>
         </div>
+        <div class="tercera-mitad">
+                <div class="row align-items-center">
+                    <div class="col-12 col-md-6 align-self-center contenido centrar-imagen">
+                        <img class="ancha" src='{% static "home/img/grupo_logos_1@3x.png" %}' alt="Quienes somos">
+                    </div>
+                    <div class="col-12 col-md-6 align-self-center contenido centrar-imagen">
+                        <img class="alta" src='{% static "home/img/grupo_logos_2@3x.png" %}' alt="Quienes somos">
+                    </div>
+                </div>
+            </div>
     </div>
     
 </body>

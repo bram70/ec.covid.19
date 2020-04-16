@@ -211,8 +211,10 @@
             <div class="datos-personales-iniciales">
                 <form class="datos-personales-iniciales-item">
                     <label for="input_fecha_nacimiento"> Fecha de Nacimiento </label><br>
-                    <input id="input_fecha_nacimiento" type="date" placeholder="dd/mm/aaaa" pattern="(^(((0[1-9]|1[0-9]|2[0-8])[\/](0[1-9]|1[012]))|((29|30|31)[\/](0[13578]|1[02]))|((29|30)[\/](0[4,6,9]|11)))[\/](19|[2-9][0-9])\d\d$)|(^29[\/]02[\/](19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)" required>
-                    <br>
+                    <div id="div_fecha_nacimiento">
+                        <input id="input_fecha_nacimiento" type="date" placeholder="dd/mm/aaaa" pattern="(^(((0[1-9]|1[0-9]|2[0-8])[\/](0[1-9]|1[012]))|((29|30|31)[\/](0[13578]|1[02]))|((29|30)[\/](0[4,6,9]|11)))[\/](19|[2-9][0-9])\d\d$)|(^29[\/]02[\/](19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)" required>
+                        <br>
+                    </div>
                     <label for="genero_select"> Género </label>
                     <select class="custom-select" id="genero_select">
                         <option value="" disabled selected>Seleccione su género</option>
@@ -481,8 +483,8 @@
 
         function obtenerDatosPersonales() {
             console.log("obteniendo datos personales");
-            if( $("#"+id_input_telefono)[0].checkValidity()){
-                var telefono_ingresado = $("#"+id_input_telefono).val();
+            var telefono_ingresado = $("#"+id_input_telefono).val();
+            if( validarNumeroTelefono(telefono_ingresado)){
                 if(telefono_ingresado){
 
                     var correo_ingresado = $("#"+id_input_correo).val();
@@ -522,7 +524,7 @@
             console.log("obteniendo respuestas")
             let respuestas = []
             //revisar si todas las preguntas han sido respondidas
-            if($('input:checked').length ==  $(".encuesta-item").length) {
+            if($('input:checked').length >=  $(".encuesta-item").length) {
                 if (posicion == undefined) {
                     $('input:checked').each(function () {
                         console.log(this.value); // "this" is the current element in the loop
@@ -588,23 +590,22 @@
         }
 
         function stringCorreoTelefonoForm(){
-            var forma_email = '<form><div class="form-group"><label for="exampleInputEmail1">Email address</label>'+
+            var forma_email = '<form><div class="form-group"><label for="exampleInputEmail1">Correo Electrónico</label>'+
                 '<input type="email" class="form-control" id="'+id_input_correo+'" aria-describedby="emailHelp" placeholder="Ingrese su email">'+
                 '<small id="emailHelp" class="form-text text-muted">Queremos ayudarte con información oportuna de ayuda, donaciones y campañas de socorro para ti y tu familia. Por favor, ingresa tu número telefónico (obligatorio) y correo electrónico (opcional).</small></div>';
 
             var forma_telefono = '<div class="form-group"><label for="exampleInputPassword1">Número de teléfono</label>'+
-                '<input type="tel" pattern="(([0]{1}[9]{1}[0-9]{8})|([0]{1}[2-7]{1}[0-9]{7}))" class="form-control" id="'+id_input_telefono+'" placeholder="Ingrese su número de teléfono"></div></form>'; 
+                '<input type="number" pattern="(([0]{1}[9]{1}[0-9]{8})|([0]{1}[2-7]{1}[0-9]{7}))" class="form-control" id="'+id_input_telefono+'" placeholder="Ingrese su número de teléfono"></div></form>'; 
 
             return forma_email+forma_telefono;
         }
 
         function validarNumeroTelefono(telefono){
-            var phoneno = /^\d{10}$/;
-            if(inputtxt.value.match(phoneno)){
+            var phoneno = /^(([0]{1}[9]{1}[0-9]{8})|([0]{1}[2-7]{1}[0-9]{7}))/;
+            if(phoneno.test(telefono)){
                 return true;
             }
             else{
-                alert("message");
                 return false;
             }
         }
