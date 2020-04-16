@@ -14,7 +14,13 @@
             margin: 0px;
         }
 
-        .primera-mitad, .segunda-mitad {
+        .tercera-mitad{
+            width: 100%;
+            background-color: #82D5E3;
+            margin: 0px;
+        }
+
+        .primera-mitad, .segunda-mitad, .tercera-mitad {
             flex: 1;
             flex-shrink: 0;
         }
@@ -50,15 +56,22 @@
             padding: 0% 5%;
             margin: 1% 0%;
         }
+
+        .centrar-imagen{
+            text-align: center;
+        }
+
         img.ancha{
-            width: 100%;
+            width: 90%;
             height: auto;
             padding: 3%;
         }
         img.alta{
-            width: 100%;
+            width: 80%;
             height: auto;
             padding: 3%;
+            align-self: center;
+            text-align: center;
         }
         h3{
             text-align: left !important;
@@ -108,6 +121,28 @@
                         </div>
                     </div>
         </div>
+        <div class="tercera-mitad">
+                <div class="row align-items-center">
+                    <div class="col-4 col-md-3 align-self-center contenido centrar-imagen">
+                      <a href="http://perspectiva.ec" target="_blank"> <img class="" style="width: 90%" src='{% static "home/img/perspectiva-logo.png" %}' alt="Quienes somos"></a>
+                    </div>
+                    <div class="col-4 col-md-3 align-self-center contenido centrar-imagen">
+                        <a href="http://witechnologyec.com" target="_blank">
+                        <img class="" style="width: 60%" src='{% static "home/img/witechnology-logo.png" %}' alt="Quienes somos">
+                        </a>
+                    </div>
+                    <div class="col-4 col-md-3 align-self-center contenido centrar-imagen">
+                        <a href="http://creceecuador.com" target="_blank">
+                        <img class="" style="width: 45%" src='{% static "home/img/crece-logo.png" %}' alt="Quienes somos">
+                        </a>
+                    </div>
+                    <div class="col-4 col-md-3 align-self-center contenido centrar-imagen">
+                      <a href="">
+                        <img class="" style="width: 85%" src='{% static "home/img/rv-logo.png" %}' alt="Quienes somos">
+                      </a>
+                    </div>
+                </div>
+            </div>
     </div>
     
 </body>
