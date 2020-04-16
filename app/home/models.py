@@ -39,7 +39,7 @@ class Respuesta(models.Model):
     hora_encuesta_iniciada = models.DateTimeField('fecha inicio encuesta', null=False, blank=False)
 
 class DatosPersonales(models.Model):
-    fecha_nacimiento = models.DateField('fecha nacimiento', blank=False, null = False)
+    fecha_nacimiento = models.CharField(max_length=4, blank=False, null = False)
     GENERO_CHOICES = (
         ("M", "Masculino"),
         ("F", "Femenino"),
