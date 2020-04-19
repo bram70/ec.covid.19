@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'flujo',
     'rest_framework',
     'geoip2',
+    'django.contrib.humanize'
 ]
 
 MIDDLEWARE = [

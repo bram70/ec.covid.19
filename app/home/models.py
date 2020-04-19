@@ -50,3 +50,9 @@ class DatosPersonales(models.Model):
     telefono = models.CharField(max_length=15, null=True, blank=True)
     fecha_creacion = models.DateTimeField('fecha creacion', default=timezone.now)
     hora_encuesta_iniciada = models.DateTimeField('fecha inicio encuesta', null=False, blank=False)
+
+class RespuestaSummary(Respuesta):
+    class Meta:
+        proxy = True
+        verbose_name = 'Respuesta resumen'
+        verbose_name_plural = 'Respuestas resumen'
