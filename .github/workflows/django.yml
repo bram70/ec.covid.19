@@ -13,7 +13,7 @@ jobs:
     strategy:
       max-parallel: 4
       matrix:
-        python-version: [3.6, 3.7, 3.8]
+        python-version: [3.6]
     env:
       SQL_ENGINE: django.contrib.gis.db.backends.postgis
       SQL_DATABASE: hello_django_dev

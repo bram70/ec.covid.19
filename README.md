@@ -1,3 +1,4 @@
+![Django CI](https://github.com/bram70/ec.covid.19/workflows/Django%20CI/badge.svg)
 # ec.covid.19
 Tu experiencia COVID-19
 
