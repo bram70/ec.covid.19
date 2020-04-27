@@ -1,0 +1,45 @@
+version: '3.7'
+
+services:
+  nginx:
+    container_name: nginx
+    build: ./nginx
+    volumes:
+      - static_volume:/usr/src/app/staticfiles
+    ports:
+      - 80:80
+    depends_on:
+      - web
+  web:
+    container_name: backend
+    build: ./app
+    command: gunicorn booking.wsgi:application --bind 0.0.0.0:8000
+    volumes:
+      - ./app/:/usr/src/app/
+      - static_volume:/usr/src/app/staticfiles
+    ports:
+      - 8000:8000
+    environment:
+      - SQL_ENGINE=django.contrib.gis.db.backends.postgis
+      - SQL_DATABASE=hello_django_dev
+      - SQL_USER=hello_django
+      - SQL_PASSWORD=hello_django
+      - SQL_HOST=db
+      - SQL_PORT=5432
+      - DATABASE=postgres
+      - DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]
+      - SECRET_KEY=change_me
+      - DEBUG=1
+
+  db:
+    container_name: db
+    image: mdillon/postgis:10-alpine 
+    volumes:
+      - postgis_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=hello_django
+      - POSTGRES_PASSWORD=hello_django
+      - POSTGRES_DB=hello_django_dev
+volumes:
+  postgis_data:
+  static_volume:
